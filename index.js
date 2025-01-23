@@ -9,15 +9,12 @@ import Verification from "./Routes/Verification.js"
 
 dotenv.config(); // Load environment variables
 
-const PORT = process.env.PORT ;
+const PORT = process.env.PORT || 7009;
 const app = express();
 
 // Middleware setup
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
-
-// CORS configuration
-app.use(cors());
 
 // Handle preflight requests
 app.options('*', cors()); // Enable CORS for all preflight OPTIONS requests
@@ -29,7 +26,7 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.get('/', (req, res) => {
     res.json("PONG");
-});b
+});
 
 
 app.use('/result', resultRoute);
