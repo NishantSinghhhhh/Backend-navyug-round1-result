@@ -1,0 +1,18 @@
+{
+    "builds": [
+      {
+        "src": "index.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "env": {
+      "NODE_ENV": "production"
+    },
+    "scripts": {
+      "dev": "npm run dev"
+    },
+    "installCommand": "npm install",
+    "buildCommand": "npm run build",
+    "outputDirectory": "public"
+  }
+  
