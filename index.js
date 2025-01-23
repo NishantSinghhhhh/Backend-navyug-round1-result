@@ -11,17 +11,17 @@ dotenv.config(); // Load environment variables
 
 const PORT = process.env.PORT || 7009;
 const app = express();
-
+app.use(cors());
 // Middleware setup
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 
 // CORS configuration
-app.use(cors({
-    origin: process.env.BASE_URL, // Ensure this matches your frontend URL
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true
-}));
+// app.use(cors({
+//     origin: process.env.BASE_URL, // Ensure this matches your frontend URL
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//     credentials: true
+// }));
 
 // Handle preflight requests
 app.options('*', cors()); // Enable CORS for all preflight OPTIONS requests
