@@ -9,7 +9,7 @@ import Verification from "./Routes/Verification.js"
 
 dotenv.config(); // Load environment variables
 
-const PORT = process.env.PORT || 7009;
+const PORT = process.env.PORT ;
 const app = express();
 
 // Middleware setup
