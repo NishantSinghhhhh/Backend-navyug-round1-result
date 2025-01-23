@@ -15,9 +15,8 @@ const app = express();
 // Middleware setup
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
-
-// Handle preflight requests
-app.options('*', cors()); // Enable CORS for all preflight OPTIONS requests
+// Allow all cors
+app.use(cors());
 
 const mongoURI = process.env.MONGO_CONN;
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
