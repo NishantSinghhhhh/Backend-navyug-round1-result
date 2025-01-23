@@ -17,11 +17,7 @@ app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 
 // CORS configuration
-app.use(cors({
-    origin: process.env.BASE_URL, // Ensure this matches your frontend URL
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true
-}));
+app.use(cors());
 
 // Handle preflight requests
 app.options('*', cors()); // Enable CORS for all preflight OPTIONS requests
@@ -33,7 +29,7 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.get('/', (req, res) => {
     res.json("PONG");
-});
+});b
 
 
 app.use('/result', resultRoute);
